@@ -397,6 +397,38 @@ td:last-child {
 th:last-child {
   text-align: right;
 }
+#contact-us-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+#contact-us-heading {
+  color: #ff0000;
+  margin-bottom: 20px;
+}
+#contact-us-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.contact-us-input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+#send-button {
+  width: 80%;
+  padding: 10px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
 
 /* -------------------account-paage------------------ */
 .account-page {
@@ -519,6 +551,7 @@ form a {
     width: 300px;
     height: 150px;
   }
+  
 }
 
 /* --------------------------The End----------------------- */
