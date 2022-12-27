@@ -16,7 +16,8 @@ BookAuthor VARCHAR(50),
 BookPublished DATE,
 BookPrice FLOAT,
 BookImage VARCHAR(2000),
-BookCategory VARCHAR(25)
+BookCategory VARCHAR(25),
+BookDescription VARCHAR(150)
 );
 
 
