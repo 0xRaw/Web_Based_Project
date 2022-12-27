@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Products</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?
@@ -15,6 +16,41 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
+    <style>
+    form {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ff523b;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button[type="submit"] {
+        width: 20%;
+        background-color: #ff523b;
+        color: white;
+        padding: 8px 2px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+
+    </style>
   </head>
 
   <body>
@@ -51,13 +87,18 @@
     <div class="small-container">
       <div class="row row-2">
         <h2>All Ebooks</h2>
-        <select>
-          <option>Default sorting</option>
-          <option>Sort by price</option>
-          <option>Sort by popularity</option>
-          <option>Sort by rating</option>
-          <option>Sort by sale</option>
+        <form action="#" method="get">
+          <input type="text" name="search" placeholder="Search...">
+        
+        <select name="sort_by">
+          <option disabled selected>Default sorting</option>
+          <option value="price_high">Sort by highest price</option>
+          <option value="price_low">Sort by lowest price</option>
+          <option value="newest">Sort by newest</option>
+          <option value="oldest">Sort by oldest</option>
         </select>
+        <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
       </div>
 
       <div class="row">

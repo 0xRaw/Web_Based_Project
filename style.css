@@ -291,6 +291,7 @@ select {
   border: 1px solid #ff523b;
   border-radius: 3px;
   padding: 5px;
+  margin: 0 8px;
 }
 select:focus {
   outline: none;
