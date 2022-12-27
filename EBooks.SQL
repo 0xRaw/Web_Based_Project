@@ -26,6 +26,7 @@ CREATE TABLE Orders(
     UserID1 int,
     BookName VARCHAR(50),
     Quantity int,
+    FullPrice int,
     FOREIGN KEY (BookID1) REFERENCES Books(BookID),
     FOREIGN KEY (UserID1) REFERENCES Users(UserID)
 );
