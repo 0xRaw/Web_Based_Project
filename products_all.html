@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
+    <title>Products Table</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -35,64 +35,66 @@
     #unique-navbar a .fa {
       margin-right: 10px;
     }
-    #dashboard {
-      display: flex;
-      align-items: center;
-      margin: 20px;
-    }
-    #dashboard .statistics {
-      width: calc(50% - 20px);
-      margin-right: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-around;
-    }
-    #dashboard .statistics .statistic {
-      display: flex;
-      align-items: center;
-      margin: 20px;
-      background-color: #f1f1f1;
-      border-radius: 5px;
-      padding: 10px;
-    }
-    #dashboard .statistics .statistic .icon {
-      flex: 0 0 64px;
-      width: 64px;
-      height: 64px;
-      background-color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-    }
-    #dashboard .statistics .statistic .icon i {
-      font-size: 32px;
-    }
-    #dashboard .statistics .statistic .content {
-      flex: 1;
-    }
-    #dashboard .statistics .statistic .content .value {
-      font-size: 22px;
-      font-weight: bold;
-      text-align: right;
-    }
-    #dashboard .statistics .statistic .content .label {
-      font-size: 18px;
-      text-align: left;
-      color: #999999;
-    }
-    #total-orders-chart {
-      width: calc(50% - 20px);
-      height: 10px;
-    }
+      /* Responsive layout */
+      .upload-form {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .form-field {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+      }
+      .form-field i {
+        margin-right: 10px;
+      }
+      .form-field label {
+        font-weight: bold;
+      }
+      .form-field input[type="text"],
+      .form-field input[type="date"],
+      .form-field select {
+        width: 60%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+       .form-field input[type="file"] {
+        width: 60%;
+        height: 38px;
+        border: 2px solid #4CAF50;
+        border-radius: 4px;
+        background-color: white;
+        font-size: 16px;
+        color: #4CAF50;
+        cursor: pointer;
+        }
+        .form-field input[type="file"]:hover {
+  background-color: #eee;
+}
+.form-field input[type="file"]:active {
+  background-color: #ddd;
+}
+      .form-field input[type="submit"] {
+        width: 20%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .form-field input[type="submit"]:hover {
+        background-color: #45a049;
+      }
     
 
-    </style>
-  </head>
+   </style>
+   </head>
 
-  <body>
+   <body>
     <!------------------ Header ------------------>
     <div class="container">
       <div class="navbar">
@@ -131,39 +133,51 @@
         <a href="new_product.html"><i class="fa fa-plus-square"></i> Upload New Product</a>
     </nav>
 
-    <div id="dashboard">
-        <div class="statistics">
-          <div class="statistic">
-            <div class="icon"><i class="fas fa-book"></i></div>
-            <div class="content">
-              <div class="value">123</div>
-              <div class="label">Number of Books</div>
-            </div>
-          </div>
-          <div class="statistic">
-            <div class="icon"><i class="fas fa-shopping-cart"></i></div>
-            <div class="content">
-              <div class="value">456</div>
-              <div class="label">Number of Orders</div>
-            </div>
-          </div>
-          <div class="statistic">
-            <div class="icon"><i class="fas fa-money-bill-wave"></i></div>
-         <div class="content">
-        <div class="value">$72</div>
-        <div class="label">Total Income</div>
-      </div>
-    </div>
-    <div class="statistic">
-      <div class="icon"><i class="fas fa-comments"></i></div>
-      <div class="content">
-        <div class="value">789</div>
-        <div class="label">Total Feedback</div>
-      </div>
-    </div>
-  </div>
-  <canvas id="total-orders-chart" height="200px"></canvas>
-</div>
+    <form class="upload-form" method="post" enctype="multipart/form-data">
+        <div class="form-field">
+          <i class="fa fa-book"></i>
+          <label for="book-name">Book Name:</label>
+          <input type="text" id="book-name" name="book-name" required>
+        </div>
+        <div class="form-field">
+          <i class="fa fa-info-circle"></i>
+          <label for="book-description">Book Description:</label>
+          <input type="text" id="book-description" name="book-description" required>
+        </div>
+        <div class="form-field">
+          <i class="fa fa-building"></i>
+          <label for="book-publisher">Book Publisher:</label>
+          <input type="text" id="book-publisher" name="book-publisher" required>
+        </div>
+        <div class="form-field">
+          <i class="fa fa-list"></i>
+          <label for="book-category">Book Category:</label>
+          <select id="book-category" name="book-category" required="true">
+            <option value="" disabled selected>-- Select a Category --</option>
+            <option value="politics">Politics</option>
+            <option value="sport">Sport</option>
+            <option value="novelties">Novelties</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <i class="fa fa-calendar"></i>
+          <label for="book-publish-date">Book Publish Date:</label>
+          <input type="date" id="book-publish-date" name="book-publish-date" required>
+        </div>
+        <div class="form-field">
+          <i class="fa fa-money"></i>
+          <label for="book-price">Book Price:</label>
+          <input type="text" id="book-price" name="book-price" required>
+        </div>
+        <div class="form-field">
+          <i class="fa fa-file-image-o"></i>
+          <label for="book-image">Book Image (only png and jpg):</label>
+          <input type="file" id="book-image" name="book-image" accept=".png,.jpg" required>
+        </div>
+        <div class="form-field">
+          <input type="submit" value="Upload">
+        </div>
+      </form>
 
     <div class="footer">
         <div class="container">
@@ -218,35 +232,5 @@
           }
         }
       </script>
-            <!-- Include Chart.js library -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-            <script>
-              // Define chart data
-              const data = {
-                labels: ['Orders', 'Income'],
-                datasets: [{
-                  data: [456, 27],
-                  backgroundColor: ['#ff0000', '#00ff00']
-                }]
-              };
-            
-              // Get reference to canvas element
-              const ctx = document.getElementById('total-orders-chart').getContext('2d');
-            
-              // Create new chart using data
-              const chart = new Chart(ctx, {
-                type: 'pie',
-                data: data,
-                options: {
-                  responsive: true,
-                  title: {
-                 display: true,
-                 text: 'Statistical Pie Chart for Orders & Income'
-                }
-                }
-                
-              });
-            </script>
     </body>
   </html>
-  
