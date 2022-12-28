@@ -49,11 +49,11 @@ VALUES (1, 'Rawi', MD5('password123'), 1),
        (5, 'mike', MD5('password112'), 0);
 
 INSERT INTO Books (BookID, BookName, BookAuthor, BookPublished, BookPrice, BookImage, BookCategory, BookDescription)
-VALUES (1, 'The Alchemist', 'Paulo Coelho', '1988-08-01', 10.99, 'alchemist.jpg', 'Fiction', 'A story about a shepherd boy who dreams of finding a treasure.'),
-       (2, 'To Kill a Mockingbird', 'Harper Lee', '1960-07-11', 8.99, 'mockingbird.jpg', 'Fiction', 'A story about racism and injustice in a small town in the US.'),
+VALUES (1, 'The Alchemist', 'Paulo Coelho', '1988-08-01', 10.99, 'alchemist', 'Fiction', 'A story about a shepherd boy who dreams of finding a treasure.'),
+       (2, 'To Kill a Mockingbird', 'Harper Lee', '1960-07-11', 8.99, 'mockingbird', 'Fiction', 'A story about racism and injustice in a small town in the US.'),
        (3, 'Pride and Prejudice', 'Jane Austen', '1813-01-28', 9.99, 'pride.jpg', 'Fiction', 'A story about the relationships and misunderstandings among the upper class in early 19th century England.'),
-       (4, 'The Great Gatsby', 'F. Scott Fitzgerald', '1925-04-10', 11.99, 'gatsby.jpg', 'Fiction', 'A story about the decadence and excess of the Roaring Twenties in the US.'),
-       (5, 'The Catcher in the Rye', 'J.D. Salinger', '1951-07-16', 7.99, 'catcher.jpg', 'Fiction', 'A story about a teenage boy who is kicked out of prep school and wanders around New York City.');
+       (4, 'The Great Gatsby', 'F. Scott Fitzgerald', '1925-04-10', 11.99, 'gatsby', 'Fiction', 'A story about the decadence and excess of the Roaring Twenties in the US.'),
+       (5, 'The Catcher in the Rye', 'J.D. Salinger', '1951-07-16', 7.99, 'catcher', 'Fiction', 'A story about a teenage boy who is kicked out of prep school and wanders around New York City.');
 
 INSERT INTO Orders (BookID1, UserID1, BookName, Quantity, FullPrice)
 VALUES (1, 1, 'The Alchemist', 1, 10.99),
