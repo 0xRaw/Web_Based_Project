@@ -3,11 +3,13 @@ create DATABASE BookStore;
 use bookstore;
 
 CREATE TABLE Users(
-    UserID int PRIMARY KEY,
-    UserName VARCHAR(25),
-    Pwd VARCHAR(255),
-    isAdmin BOOLEAN
+    UserID INT NOT NULL AUTO_INCREMENT ,
+    UserName VARCHAR(25) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Pwd VARCHAR(255) NOT NULL,
+    isAdmin BOOLEAN NOT NULL,
 
+    PRIMARY KEY (UserID)
 );
 
 CREATE Table Books(
@@ -41,12 +43,12 @@ CREATE TABLE Feedback(
     MessageDate DATE
 );
 
-INSERT INTO Users (UserID, UserName, Pwd, isAdmin)
-VALUES (1, 'Rawi', MD5('password123'), 1),
-       (2, 'jane', MD5('password456'), 0),
-       (3, 'bob', MD5('password789'), 0),
-       (4, 'sarah', MD5('password101'), 0),
-       (5, 'mike', MD5('password112'), 0);
+INSERT INTO Users (UserName, Email, Pwd, isAdmin)
+VALUES ('Rawi', 'admin@admin.com', MD5('password123'), 1),
+       ('jane', 'jane@gmail.com', MD5('password456'), 0),
+       ('bob', 'bob@gmail.com', MD5('password789'), 0),
+       ('sarah', 'sarah@gmail.com', MD5('password101'), 0),
+       ('mike', 'mike@gmail.com', MD5('password112'), 0);
 
 INSERT INTO Books (BookID, BookName, BookAuthor, BookPublished, BookPrice, BookImage, BookCategory, BookDescription)
 VALUES (1, 'The Alchemist', 'Paulo Coelho', '1988-08-01', 10.99, 'alchemist', 'Fiction', 'A story about a shepherd boy who dreams of finding a treasure.'),
