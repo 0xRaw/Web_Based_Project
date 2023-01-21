@@ -69,8 +69,6 @@ VALUES (1, 'John Smith', 'johnsmith@email.com', 'I really enjoyed reading this b
        (4, 'Sarah Williams', 'sarahwilliams@email.com', 'I thought the plot was a bit predictable, but overall it was a good read.', '2022-01-04'),
        (5, 'Mike Thompson', 'mikethompson@email.com', 'I was really disappointed with this book. The characters were flat and the ending was unsatisfying.', '2022-01-05');
 
-TABLE Users;
-
 INSERT INTO Books (BookID, BookName, BookAuthor, BookPublished, BookPrice, BookImage, BookCategory, BookDescription) 
 VALUES (6,'Sherlock Holmes','Arthur Conan Doyle','1986-12-12',50,"Sherlockholmes.jpg",'Fiction','The Complete Sherlock Holmes: All 4 Novels and 56 Short Stories'),
        (7,'The North Water','Ian McGuire','2021-01-01',40,"TheNorthWater.jpg",'Fiction',"Patrick Sumner (Jack O'Connell) a disgraced ex-army surgeon who sets sail on a whaling ship, essentially to forget his past."),
