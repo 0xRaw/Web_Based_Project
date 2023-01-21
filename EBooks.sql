@@ -70,11 +70,13 @@ VALUES (1, 'John Smith', 'johnsmith@email.com', 'I really enjoyed reading this b
        (5, 'Mike Thompson', 'mikethompson@email.com', 'I was really disappointed with this book. The characters were flat and the ending was unsatisfying.', '2022-01-05');
 
 INSERT INTO Books (BookID, BookName, BookAuthor, BookPublished, BookPrice, BookImage, BookCategory, BookDescription) 
-VALUES (6,'Sherlock Holmes','Arthur Conan Doyle','1986-12-12',50,"Sherlockholmes.jpg",'Fiction','The Complete Sherlock Holmes: All 4 Novels and 56 Short Stories'),
-       (7,'The North Water','Ian McGuire','2021-01-01',40,"TheNorthWater.jpg",'Fiction',"Patrick Sumner (Jack O'Connell) a disgraced ex-army surgeon who sets sail on a whaling ship, essentially to forget his past."),
-       (8, 'The Last Gift','Abdulrazak Gurnah', '2012-06-01', 35, "TheLastGift.jpg",'Fiction','Takes on the themes of cultural identity and the weight of family secrets.'),
-       (9, 'No Longer Human', 'Osamu Dazai','2022-05-15', 80, "NoLongerHuman.jpg",'Fiction',' A young man who is caught between the breakup of the traditions of a northern Japanese aristocratic family and the impact of Western ideas.'),
-       (10, 'The Poppy War','R. F. Kuang','2018-03-01',70,"ThePoppyWar.png",'Fiction','Passionate yet ruthless Fang Runin, also known as Rin, who grows up poor, orphaned by a previous war.'),
-       (11,'Muhammad Ali - The Tribute','Staffs of Sports Illustrated','2016-12-1', 90,'MuhammadAli-TheTribute.jpg','sport','The definitive tribute that celebrates the life and legacy of Muhammad Ali, an American original.'),
-       (12,'The Empowered Manager','Peter Block','2016-04-01',60,'The Empowered Manager.jpg','politics','Uncovers a roadmap to creating a more accountable culture'),
-       (13,'Iran Supreme Leadership','Mohammed Alsulami','2021-09-11',40,'IranSupremeLeadership.jpg','politics','Shiite Political Controversy Between Arab and Iranian');
+VALUES (6,'Sherlock Holmes','Arthur Conan Doyle','1986-12-12',50,"Sherlockholmes.jpg",'Fictions','The Complete Sherlock Holmes: All 4 Novels and 56 Short Stories'),
+       (7,'The North Water','Ian McGuire','2021-01-01',40,"TheNorthWater.jpg",'Fictions',"Patrick Sumner (Jack O'Connell) a disgraced ex-army surgeon who sets sail on a whaling ship, essentially to forget his past."),
+       (8, 'The Last Gift','Abdulrazak Gurnah', '2012-06-01', 35, "TheLastGift.jpg",'Fictions','Takes on the themes of cultural identity and the weight of family secrets.'),
+       (9, 'No Longer Human', 'Osamu Dazai','2022-05-15', 80, "NoLongerHuman.jpg",'Fictions',' A young man who is caught between the breakup of the traditions of a northern Japanese aristocratic family and the impact of Western ideas.'),
+       (10, 'The Poppy War','R. F. Kuang','2018-03-01',70,"ThePoppyWar.png",'Fictions','Passionate yet ruthless Fang Runin, also known as Rin, who grows up poor, orphaned by a previous war.'),
+       (11,'Muhammad Ali - The Tribute','Staffs of Sports Illustrateds','2016-12-1', 90,'MuhammadAli-TheTribute.jpg','Sports','The definitive tribute that celebrates the life and legacy of Muhammad Ali, an American original.'),
+       (12,'The Empowered Manager','Peter Block','2016-04-01',60,'The Empowered Manager.jpg','Politics','Uncovers a roadmap to creating a more accountable culture'),
+       (13,'Iran Supreme Leadership','Mohammed Alsulami','2021-09-11',40,'IranSupremeLeadership.jpg','Politics','Shiite Political Controversy Between Arab and Iranian')
+       (14,'Secret Empires','Peter Schweizer','2018-7-22',80,'SecretEmpires.jpg','Politics','Peter Schweizer has been fighting corruption—and winning—for years. In Throw Them All Out, he exposed insider trading by members of Congress'),
+       (15,'The Secret History','Donna Tartt','2004-1-15',20,'TheSecretHistory','Novelties','an inverted detective story narrated by one of the six students, Richard Papen, who reflects years later upon the situation that led to the murder of their friend Edmund "Bunny" Corcoran')
