@@ -66,10 +66,10 @@ include("connection.php");
                 <span onclick="signUp()"> Sign Up </span>
                 <hr id="indicator" />
 
-                <form id="signInForm" name="myform">
-                  <input type="text" placeholder="Username" name="uname" />
+                <form id="signInForm" method="POST" action="account.php">
+                  <input name="uname" type="text" placeholder="Username" />
                   <span id="uname"></span>
-                  <input type="password" placeholder="Password" />
+                  <input name="password" type="password" placeholder="Password" />
                   <button name="signin-btn" type="submit" class="btn">Sign In</button>
                   <a href="">Forgot password</a>
                 </form>
@@ -216,13 +216,24 @@ if (isset($_POST["signup-btn"])) {
 }
 if (isset($_POST['signin-btn'])) {
   // Sign In button was clicked
-  $emailCheck = $conn->prepare("SELECT * FROM users WHERE UserName = ? AND  Pwd = ?");
-  $emailCheck->bind_param("ss", $email); //check this line
-  $emailCheck->execute();
-  $emailResult = $emailCheck->get_result();
-
-  if ($emailResult->num_rows > 0) {
-    echo "<div>The email is already registered</div>";
-  }
+  $username=$_POST['uname'];
+  $password=md5($_POST['password']);
+  $loginCheck = $conn->prepare("SELECT * FROM users WHERE UserName = ? AND  Pwd = ?");
+  $loginCheck->bind_param("ss", $username, $password); //check this line
+  $loginCheck->execute();
+  $loginResult = $loginCheck->get_result();
+  if ($loginResult->num_rows > 0) {
+    $user = $loginResult->fetch_assoc();
+    $_SESSION["username"] = $username;
+    if($user['isAdmin'] === 1){
+      $_SESSION["isAdmin"] = 1;
+      echo "<script>window.location.href='dashboard.php';</script>";
+    }else{
+      $_SESSION["isAdmin"] = 0;
+      echo "<script>window.location.href='user_dashboard.php';</script>";
+    }
+  }else{
+    echo "<div> invalid Username/Password </div>";
+  };
 };
 ?>
