@@ -3,13 +3,11 @@ create DATABASE BookStore;
 use bookstore;
 
 CREATE TABLE Users(
-    UserID INT NOT NULL AUTO_INCREMENT ,
-    UserName VARCHAR(25) NOT NULL,
-    Email VARCHAR(255) NOT NULL,
-    Pwd VARCHAR(255) NOT NULL,
-    isAdmin BOOLEAN NOT NULL,
+    UserID int PRIMARY KEY,
+    UserName VARCHAR(25),
+    Pwd VARCHAR(255),
+    isAdmin BOOLEAN
 
-    PRIMARY KEY (UserID)
 );
 
 CREATE Table Books(
@@ -43,12 +41,12 @@ CREATE TABLE Feedback(
     MessageDate DATE
 );
 
-INSERT INTO Users (UserName, Email, Pwd, isAdmin)
-VALUES ('Rawi', 'admin@admin.com', MD5('password123'), 1),
-       ('jane', 'jane@gmail.com', MD5('password456'), 0),
-       ('bob', 'bob@gmail.com', MD5('password789'), 0),
-       ('sarah', 'sarah@gmail.com', MD5('password101'), 0),
-       ('mike', 'mike@gmail.com', MD5('password112'), 0);
+INSERT INTO Users (UserID, UserName, Pwd, isAdmin)
+VALUES (1, 'Rawi', MD5('password123'), 1),
+       (2, 'jane', MD5('password456'), 0),
+       (3, 'bob', MD5('password789'), 0),
+       (4, 'sarah', MD5('password101'), 0),
+       (5, 'mike', MD5('password112'), 0);
 
 INSERT INTO Books (BookID, BookName, BookAuthor, BookPublished, BookPrice, BookImage, BookCategory, BookDescription)
 VALUES (1, 'The Alchemist', 'Paulo Coelho', '1988-08-01', 10.99, 'alchemist', 'Fiction', 'A story about a shepherd boy who dreams of finding a treasure.'),
@@ -72,3 +70,13 @@ VALUES (1, 'John Smith', 'johnsmith@email.com', 'I really enjoyed reading this b
        (5, 'Mike Thompson', 'mikethompson@email.com', 'I was really disappointed with this book. The characters were flat and the ending was unsatisfying.', '2022-01-05');
 
 TABLE Users;
+
+INSERT INTO Books (BookID, BookName, BookAuthor, BookPublished, BookPrice, BookImage, BookCategory, BookDescription) 
+VALUES (6,'Sherlock Holmes','Arthur Conan Doyle','1986-12-12',50,"Sherlockholmes.jpg",'Fiction','The Complete Sherlock Holmes: All 4 Novels and 56 Short Stories'),
+       (7,'The North Water','Ian McGuire','2021-01-01',40,"TheNorthWater.jpg",'Fiction',"Patrick Sumner (Jack O'Connell) a disgraced ex-army surgeon who sets sail on a whaling ship, essentially to forget his past."),
+       (8, 'The Last Gift','Abdulrazak Gurnah', '2012-06-01', 35, "TheLastGift.jpg",'Fiction','Takes on the themes of cultural identity and the weight of family secrets.'),
+       (9, 'No Longer Human', 'Osamu Dazai','2022-05-15', 80, "NoLongerHuman.jpg",'Fiction',' A young man who is caught between the breakup of the traditions of a northern Japanese aristocratic family and the impact of Western ideas.'),
+       (10, 'The Poppy War','R. F. Kuang','2018-03-01',70,"ThePoppyWar.png",'Fiction','Passionate yet ruthless Fang Runin, also known as Rin, who grows up poor, orphaned by a previous war.'),
+       (11,'Muhammad Ali - The Tribute','Staffs of Sports Illustrated','2016-12-1', 90,'MuhammadAli-TheTribute.jpg','sport','The definitive tribute that celebrates the life and legacy of Muhammad Ali, an American original.'),
+       (12,'The Empowered Manager','Peter Block','2016-04-01',60,'The Empowered Manager.jpg','politics','Uncovers a roadmap to creating a more accountable culture'),
+       (13,'Iran Supreme Leadership','Mohammed Alsulami','2021-09-11',40,'IranSupremeLeadership.jpg','politics','Shiite Political Controversy Between Arab and Iranian');
