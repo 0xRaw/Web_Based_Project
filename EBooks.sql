@@ -70,3 +70,5 @@ VALUES (1, 'John Smith', 'johnsmith@email.com', 'I really enjoyed reading this b
        (3, 'Bob Johnson', 'bobjohnson@email.com', 'This was a great book, I would recommend it to anyone.', '2022-01-03'),
        (4, 'Sarah Williams', 'sarahwilliams@email.com', 'I thought the plot was a bit predictable, but overall it was a good read.', '2022-01-04'),
        (5, 'Mike Thompson', 'mikethompson@email.com', 'I was really disappointed with this book. The characters were flat and the ending was unsatisfying.', '2022-01-05');
+
+TABLE Users;
