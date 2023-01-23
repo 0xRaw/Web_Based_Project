@@ -4,6 +4,7 @@ include("connection.php");
     //Check if the session variable "username" exists
     if(!isset($_SESSION["username"])){
       //redirect users that are not authenticated to the login page.
+      echo "<script>alert('your not logged in')</script>";
       echo "<script>window.location.href='account.php';</script>";
     }
 ?>
