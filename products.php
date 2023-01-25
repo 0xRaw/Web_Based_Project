@@ -86,22 +86,39 @@
     </div>
 
     <div class="small-container">
-      <div class="row row-2">
-        <h2>All Ebooks</h2>
-        <form action="products.php" method="POST">
-          <input type="text" name="search" placeholder="Search...">
-        <select name="sort_by">
-          <option disabled selected>Default sorting</option>
-          <option value="price_high">Sort by highest price</option>
-          <option value="price_low">Sort by lowest price</option>
-          <option value="newest">Sort by newest</option>
-          <option value="oldest">Sort by oldest</option>
-        </select>
-        <button type="submit"><i class="fas fa-search"></i></button>
-        </form>
-      </div>
-      <?php
+  <div class="row row-2">
+    <h2>All Books</h2>
+    <form action="products.php" method="POST">
+      <input type="text" name="searchq" placeholder="Search...">
+    <select name="sort_by">
+      <option disabled selected>Default sorting</option>
+      <option value="price_high">Sort by highest price</option>
+      <option value="price_low">Sort by lowest price</option>
+      <option value="newest">Sort by newest</option>
+      <option value="oldest">Sort by oldest</option>
+    </select>
+    <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+  <?php
+  //get every thing from Books Table
 $query = "SELECT * FROM Books";
+if(isset($_POST['sort_by'])){
+$sort_by = $_POST['sort_by'];
+if ($sort_by == "price_high") {
+  $query .= " ORDER BY BookPrice DESC";
+} elseif ($sort_by == "price_low") {
+  $query .= " ORDER BY BookPrice ASC";
+} elseif ($sort_by == "newest") {
+  $query .= " ORDER BY BookId DESC";
+} elseif ($sort_by == "oldest") {
+  $query .= " ORDER BY BookId ASC";
+}}
+//check if the search is empty or not, and if its presesnt in the request or not.
+if(isset($_POST['searchq']) && !empty($_POST['searchq'])){
+  $search = mysqli_real_escape_string($conn, strtolower($_POST['searchq']));
+  $query .= " WHERE LOWER(BookName) LIKE '%$search%' OR LOWER(BookAuthor) LIKE '%$search%' OR LOWER(BookCategory) LIKE '%$search%'";
+}
 $result = mysqli_query($conn, $query);?>
 <div class="row">
     <?php 
@@ -109,12 +126,12 @@ $result = mysqli_query($conn, $query);?>
     while($row = mysqli_fetch_assoc($result)) {
         $bookName = $row['BookName'];
         $bookAuthor = $row['BookAuthor'];
+        $bookID= $row['BookID'];
         $bookPrice = $row['BookPrice'];
         $bookImage =  str_replace(' ', '', $row['BookImage']); //to remove spaces in picture names
         $bookCategory = $row['BookCategory'];
         echo '<div class="col-4">';
-        echo "<a href='book-detail.html'>
-        <img src='bookimages/$bookImage' alt='test' /></a>";
+        echo "<a href='book-detail.php?id=$bookID'><img src='bookimages/$bookImage' alt='test' /></a>";
         echo '<h4>'.$bookName.'</h4>';
         echo '<div class="rating">
         <i class="fa fa-star"></i>
@@ -129,7 +146,7 @@ $result = mysqli_query($conn, $query);?>
       if($counter % 4 == 0){
             echo '</div><div class="row">';
         }
-    }
+    };
     ?>
 </div><!-- THIS IS THE ORIGINAL CODE (IF YOU NEED IT AS REFERCNE)
       <div class="row">
@@ -170,11 +187,6 @@ $result = mysqli_query($conn, $query);?>
 
 	  <!-- -->
       <div class="page-btn">
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>&#8594;</span>
       </div>
     </div>
         <!-- ---------------------footer------------------- -->
