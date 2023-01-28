@@ -73,6 +73,7 @@ session_start();
           <h2>Written by : <?php echo $row['BookAuthor']; ?></h2>
           <h3>Book Category : <?php echo $row['BookCategory'];?>
           <h4><?php echo $row['BookPrice']?> SAR</h4>
+          <span>Quantity: </span>
           <input name="book-quantity" type="number" value="1" />
           <span>Book Type : </span><select id="book-type" name="book-type">
                 <option value="pdf">PDF</option>

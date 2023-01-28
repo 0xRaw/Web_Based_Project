@@ -2,6 +2,7 @@
 session_start();
 include 'connection.php';
 //make it as A FUNCTION -> CHECKOUT FUNCTION
+//check if user logged in & has a valid cart.
 if(isset($_SESSION['username']) && ($_SESSION['cart'])){
     //User is logged in, proceed with order insertion
     $cart = $_SESSION['cart'];
