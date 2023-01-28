@@ -1,6 +1,6 @@
 <?php include('connection.php');
 session_start();
-if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book-price']) && isset($_POST['book-quantity']) && isset($_POST['book-type']) && isset($_POST['book-category']))
+if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book-price']) && isset($_POST['book-quantity']) && isset($_POST['book-type']) && isset($_POST['book-category']) && isset($_POST['book-image']))
 {
     $book_id = $_POST['book-id'];
     $book_title = $_POST['book-title'];
@@ -8,19 +8,23 @@ if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book
     $book_type = $_POST['book-type'];
     $book_quantity=$_POST['book-quantity'];
     $book_category=$_POST['book-category'];
+    $book_image=$_POST['book-image'];
     $cart = array();
     if(isset($_SESSION['cart'])){
+      //SECOND ITEM ADDED (NOT THE FIRST.)
       $cart = $_SESSION['cart'];
-      $cart[] = array( 'book_id' => $book_id, 'book_title' => $book_title, 'book_price' => $book_price, 'book_type' => $book_type, 'book_quantity' => $book_quantity , 'book_category' => $book_category);
+      $cart[] = array( 'book_id' => $book_id, 'book_title' => $book_title, 'book_price' => $book_price, 'book_type' => $book_type, 'book_quantity' => $book_quantity , 'book_category' => $book_category , 'book_image' => $book_image);
       $_SESSION['cart'] = $cart;
     }
     else
     {
-      $cart[] = array( 'book_id' => $book_id, 'book_title' => $book_title, 'book_price' => $book_price, 'book_type' => $book_type, 'book_quantity' => $book_quantity , 'book_category' => $book_category);
+      //FIRST ITEM ADDED
+      $cart[] = array( 'book_id' => $book_id, 'book_title' => $book_title, 'book_price' => $book_price, 'book_type' => $book_type, 'book_quantity' => $book_quantity , 'book_category' => $book_category, 'book_image' => $book_image);
       $_SESSION['cart'] = $cart;
       
     }
-}else{
+}
+elseif(!isset($_SESSION['cart'])){
   echo "<script>alert('Cart is empty, please add items to your cart.');</script>";
   echo "<script>window.location.href='products.php';</script>";
 }
@@ -78,7 +82,8 @@ if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book
     </div>
 
     <!-- ---------- cart items details------------- -->
-    <form action="update-cart.php" method="post">
+    <!-- ---------- UPDATE Processs------------- -->
+    <form action="update-cart.php" method="post" id="Update">
     <div class="small-container cart-page">
       <table>
         <tr>
@@ -95,11 +100,13 @@ if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book
               <tr>
                 <td>
                   <div class='cart-info'>
-                    <img src='images/Book 16.jpg' alt='Book 16' />
+                    <img src='bookimages/".$cart[$i]['book_image']."' />
                     <div>
                       <p>" . $cart[$i]['book_title'] . "</p>
                       <small> Per Piece : " . $cart[$i]['book_price'] . " SAR</small> <br />
-                      <a href=''>Remove</a>
+                      <small> Book Category : " . $cart[$i]['book_category'] . "</small> <br />
+                      <small> Book Type : " . $cart[$i]['book_type'] . "</small> <br />
+                      <a href='remove-from-cart.php?book_id=".$cart[$i]['book_id']."'>Remove</a>
                     </div>
                   </div>
                 </td>
@@ -118,12 +125,29 @@ if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book
           </tr>
         </table>
         <div class="my-btn-container">
-    <input type="submit" value="Update Cart" class="btn btn-primary my-btn-update">
-    <input type="submit" Value="Check Out" class="btn btn-primary my-btn-update">
+        <input name="update_button" type="submit" value="Update Cart" class="btn btn-primary my-btn-update">
       </div>
       </div>
       </form>
-    </div>
+              <!-- CHECK OUT PROCCESS -->
+      <div class="small-container cart-page">
+
+      
+      <form action="checkout.php" method="post">
+        <div class="form-group">
+          <label for="address" style="font-weight: bold;">Address</label>
+          <input name="address" type="text" class="form-control" id="address" style="border-radius: 5px; padding: 10px; border: 1px solid gray;">
+        </div>
+        <div class="form-group">
+          <label for="notes" style="font-weight: bold;">Notes</label>
+          <input name="notes" class="form-control" id="notes" style="appearance: textfield; border-radius: 5px; padding: 10px; border: 1px solid gray; height: 100px;">
+        </div>
+        <div class="my-btn-container">
+        <input name="checkout" type="submit" value="checkout" class="btn btn-primary my-btn-checkout" style="border-radius: 5px; padding: 10px; border: 1px solid gray;">
+      </div>
+      </form>
+      </div>
+
     </div>
     <!-- ---------------------footer------------------- -->
     <div class="footer">
