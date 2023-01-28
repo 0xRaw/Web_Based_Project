@@ -1,3 +1,8 @@
+<?php include('connection.php');
+session_start();
+// Based On task number 11 add google maps to the location of book store location
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

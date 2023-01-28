@@ -224,7 +224,9 @@ if (isset($_POST['signin-btn'])) {
   $loginResult = $loginCheck->get_result();
   if ($loginResult->num_rows > 0) {
     $user = $loginResult->fetch_assoc();
+    //Can Be used for checks.
     $_SESSION["username"] = $username;
+    $_SESSION["userID"] = $user['UserID'];
     if($user['isAdmin'] === 1){
       $_SESSION["isAdmin"] = 1;
       echo "<script>window.location.href='dashboard.php';</script>";

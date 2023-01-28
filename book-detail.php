@@ -1,6 +1,7 @@
 <?php include('connection.php');
 session_start();
-session_unset();?>
+//Add input validation in javascript.
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -77,10 +78,12 @@ session_unset();?>
                 <option value="pdf">PDF</option>
                 <option value="hardcopy">Hardcopy</option>
             </select>
+            <!-- ----------values Passed to the cart.------------- -->
             <input type="hidden" name="book-category" value="<?php echo $row['BookCategory'] ?>">
             <input type="hidden" name="book-id" value="<?php echo $row['BookID'] ?>">
             <input type="hidden" name="book-title" value="<?php echo $row['BookName'] ?>">
             <input type="hidden" name="book-price" value="<?php echo $row['BookPrice'] ?>">
+            <input type="hidden" name="book-image" value="<?php echo $bookImage ?>">
             <input type="submit" value="Add To Cart" class="btn">
           <h3>Book Deatails <i class="fa fa-indent"></i></h3>
           <br />
