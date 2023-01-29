@@ -61,13 +61,19 @@ elseif(!isset($_SESSION['cart'])){
           </a>
         </div>
         <!----------  Nav Bar ------------------>
-        <nav>
-          <ul id="MenuItems">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact_us.html">Contact</a></li>
-            <li><a href="account.html">Account</a></li>
-          </ul>
+         <!----------  Nav Bar ------------------>
+         <nav>
+            <ul id="MenuItems">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact_us.html">Contact</a></li>
+              <li><a href="account.html">Account</a></li>
+              <!----------  Welcoming and Logout ------------------>
+              <?php if(isset($_SESSION['username'])){
+              echo "<li> Welcome , $_SESSION[username] <li>";
+              echo "<li><a href='logout.php'>Logout</a></li>";
+              }?>
+            </ul>
         </nav>
         <a href="cart.html">
           <img
@@ -131,9 +137,8 @@ elseif(!isset($_SESSION['cart'])){
       </form>
               <!-- CHECK OUT PROCCESS -->
       <div class="small-container cart-page">
-
       
-      <form action="checkout.php" method="post">
+      <form action="checkout.php" method="post" id="Checkout">
         <div class="form-group">
           <label for="address" style="font-weight: bold;">Address</label>
           <input name="address" type="text" class="form-control" id="address" style="border-radius: 5px; padding: 10px; border: 1px solid gray;">
@@ -143,7 +148,7 @@ elseif(!isset($_SESSION['cart'])){
           <input name="notes" class="form-control" id="notes" style="appearance: textfield; border-radius: 5px; padding: 10px; border: 1px solid gray; height: 100px;">
         </div>
         <div class="my-btn-container">
-        <input name="checkout" type="submit" value="checkout" class="btn btn-primary my-btn-checkout" style="border-radius: 5px; padding: 10px; border: 1px solid gray;">
+        <input name="checkout" type="submit" class="btn btn-primary my-btn-checkout" style="border-radius: 5px; padding: 10px; border: 1px solid gray;">
       </div>
       </form>
       </div>

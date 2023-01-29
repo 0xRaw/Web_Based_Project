@@ -26,123 +26,7 @@ include("connection.php");
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-    /* Responsive layout */
-    .dashboard {
-        width: 80%;
-        margin: 0 auto;
-      }
-      .welcome {
-        text-align: center;
-        margin: 20px 0;
-      }
-      .welcome h1 {
-        font-size: 36px;
-        color: #4CAF50;
-      }
-      .orders {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      .orders td,
-      .orders th {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-      .orders tr:nth-child(even) {
-        background-color: #f2f2f2;
-      }
-      .orders th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4CAF50;
-        color: white;
-      }
-      .orders td {
-        text-align: right;
-      }
-      .orders td.actions {
-        text-align: center;
-      }
-      .orders td.actions button {
-        background-color: #f44336;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
-      .orders td.actions button:hover {
-        background-color: #e57373;
-      }
-      /* Dialog box */
-      .dialog-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
-      }
-      .dialog-box {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 400px;
-        background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        padding: 16px;
-      }
-      .dialog-box h2 {
-        margin: 0;
-        font-size: 18px;
-      }
-      .dialog-box p {
-        margin: 16px 0;
-        font-size: 14px;
-      }
-      .dialog-box form {
-        display: flex;
-        align-items: center;
-      }
-      .dialog-box form label {
-        flex: 1;
-      }
-      .dialog-box form input[type="text"] {
-        flex: 2;
-        height: 38px;
-        padding: 0 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-      .dialog-box form button {
-        margin-left: 16px;
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      .dialog-box form button:hover {
-        background-color: #45a049;
-      }
-   </style>
    </head>
-
    <body>
     <!------------------ Header ------------------>
     <div class="container">
@@ -154,13 +38,17 @@ include("connection.php");
         </div>
         <!----------  Nav Bar ------------------>
         <nav>
-          <ul id="MenuItems">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact_us.html">Contact</a></li>
-            <li><a href="account.html">Account</a></li>
-            <li><a href="account.html"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-          </ul>
+            <ul id="MenuItems">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact_us.html">Contact</a></li>
+              <li><a href="account.html">Account</a></li>
+              <!----------  Welcoming and Logout ------------------>
+              <?php if(isset($_SESSION['username'])){
+              echo "<li> Welcome , $_SESSION[username] <li>";
+              echo "<li><a href='logout.php'>Logout</a></li>";
+              }?>
+            </ul>
         </nav>
         <a href="cart.html">
           <img

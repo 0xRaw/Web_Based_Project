@@ -31,14 +31,19 @@ session_start();
             <img src="images/EbookStore-Logo.png" alt="EbookStore-Logo" />
           </a>
         </div>
-        <!----------  Nav Bar ------------------>
-        <nav>
-          <ul id="MenuItems">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact_us.html">Contact</a></li>
-            <li><a href="account.html">Account</a></li>
-          </ul>
+         <!----------  Nav Bar ------------------>
+         <nav>
+            <ul id="MenuItems">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a href="contact_us.html">Contact</a></li>
+              <li><a href="account.html">Account</a></li>
+              <!----------  Welcoming and Logout ------------------>
+              <?php if(isset($_SESSION['username'])){
+              echo "<li> Welcome , $_SESSION[username] <li>";
+              echo "<li><a href='logout.php'>Logout</a></li>";
+              }?>
+            </ul>
         </nav>
         <a href="cart.html">
           <img

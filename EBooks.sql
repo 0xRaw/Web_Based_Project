@@ -37,6 +37,7 @@ CREATE TABLE Orders(
     BookType VARCHAR(9) NOT NULL,
     Address VARCHAR(200) NOT NULL,
     Notes VARCHAR(200) NOT NULL,
+    OrderTime DATETIME NOT NULL,
 
 
     FOREIGN KEY (BookID) REFERENCES Books(BookID),
@@ -62,12 +63,12 @@ VALUES (1, 'Rawi', MD5('password123'), 1),
        (4, 'sarah', MD5('password101'), 0),
        (5, 'mike', MD5('password112'), 0);
 
-INSERT INTO Orders (BookID, UserID, BookName, Quantity, FullPrice, BookType, Address , Notes)
-VALUES (1, 1, 'The Alchemist', 1, 10.99, 'pdf' ,'Khobar , 29922 , Ash Shariqya', 'please make it clear in terms of email title'),
-       (2, 2, 'To Kill a Mockingbird', 2, 17.98, 'hardcopy' , 'Dammam , 29962 , Ash Shariqya', 'try to ship it this week'),
-       (3, 3, 'Pride and Prejudice', 1, 9.99 , 'pdf' ,'Dhaharan , 63985 , Ash Shariqya','nothing' ),
-       (4, 4, 'The Great Gatsby', 3, 35.97, 'hardcopy' ,'Dammam , 22684 , Ash Shariqya','no need'),
-       (5, 5, 'The Catcher in the Rye', 1, 7.99, 'pdf', 'Qatif , 36698 , Ash Shariqya', 'include a url to download.');
+INSERT INTO Orders (BookID, UserID, BookName, Quantity, FullPrice, BookType, Address , Notes , OrderTime)
+VALUES (1, 1, 'The Alchemist', 1, 10.99, 'pdf' ,'Khobar , 29922 , Ash Shariqya', 'please make it clear in terms of email title' , '0000-00-00 00:00:00'),
+       (2, 2, 'To Kill a Mockingbird', 2, 17.98, 'hardcopy' , 'Dammam , 29962 , Ash Shariqya', 'try to ship it this week', '0000-00-00 00:00:00'),
+       (3, 3, 'Pride and Prejudice', 1, 9.99 , 'pdf' ,'Dhaharan , 63985 , Ash Shariqya','nothing', '0000-00-00 00:00:00' ),
+       (4, 4, 'The Great Gatsby', 3, 35.97, 'hardcopy' ,'Dammam , 22684 , Ash Shariqya','no need', '0000-00-00 00:00:00'),
+       (5, 5, 'The Catcher in the Rye', 1, 7.99, 'pdf', 'Qatif , 36698 , Ash Shariqya', 'include a url to download.', '0000-00-00 00:00:00');
 
 INSERT INTO Feedback (FullName, Email, Messages, MessageDate)
 VALUES ('John Smith', 'johnsmith@email.com', 'I really enjoyed reading this book!', '2022-01-01'),
