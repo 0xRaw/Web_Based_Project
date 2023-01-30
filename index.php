@@ -55,6 +55,9 @@ include 'connection.php';?>
           </a>
           <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
         </div>
+        <?php 
+        echo "<h4>Latest Order</h4>";
+        ?>
         <div class="row">
           <div class="col-2">
             <h1>

@@ -66,6 +66,10 @@ session_start();
           <textarea name="message" id="message-input" class="contact-us-input" placeholder="Message"></textarea>
           <button type="submit" id="send-button" class="contact-us-button">Send</button>
         </form>
+
+        <br>
+        <h2 id="contact-us-heading">Our Location :</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.511799818381!2d50.16534504059168!3d26.309922075024186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49e63a6101cabb%3A0x7e4fd4e0d680283b!2sJarir%20Bookstore!5e0!3m2!1sen!2ssa!4v1675111981972!5m2!1sen!2ssa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="footer">
