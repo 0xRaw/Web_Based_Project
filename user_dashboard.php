@@ -74,7 +74,9 @@ if (!isset($_SESSION["username"])) {
       $query = "SELECT * FROM orders WHERE UserID='{$_SESSION['userID']}'";
       $result = mysqli_query($conn, $query);
       if (mysqli_num_rows($result) < 1) {
-        echo "No Orders Has Been Received From User.";
+        echo "<script>alert('No Orders Has Been Received From User.')</script>";
+        echo "<script>window.location.href='products.php';</script>";
+        
       } else {
         while ($row = mysqli_fetch_array($result)) {
           echo "<form method='POST' id='del'>";

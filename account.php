@@ -80,8 +80,8 @@ include("connection.php");
                 </form>
 
                 <form id="signUpForm" method="POST" action="account.php">
-                  <input type="text" placeholder="Username" name="uname_reg" />
-                  <input type="email" placeholder="Email" name="email_reg" />
+                  <input name="uname_reg" type="text" placeholder="Username" />
+                  <input name="email_reg" type="email" placeholder="Email" />
                   <input name="pwd_reg" type="password" placeholder="Password"  />
                   <button name="signup-btn" type="submit" class="btn" >Sign Up</button>
                 </form>  
@@ -174,6 +174,16 @@ include("connection.php");
           document.getElementById("uname").textContent = "User Name is Invalid";
           document.getElementById("uname").style.background = "#EF6257";
           document.getElementById("uname").style.fontSize = "12px";
+        }
+        var ptrn = /^([^0-9\W]*)$/;
+        if (ptrn.test(document.myform.uname.value)) {
+          document.getElementById("uname_reg").textContent = "User Name is Valid";
+          document.getElementById("uname_reg").style.background = "#72EF57";
+          document.getElementById("uname_reg").style.fontSize = "12px";
+        } else {
+          document.getElementById("uname_reg").textContent = "User Name is Invalid";
+          document.getElementById("uname_reg").style.background = "#EF6257";
+          document.getElementById("uname_reg").style.fontSize = "12px";
         }
       }
 
