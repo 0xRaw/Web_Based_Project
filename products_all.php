@@ -236,7 +236,7 @@ while($row = mysqli_fetch_assoc($result)) {
   echo '<div class="col-4">';
   echo "<a href='book-detail.php?id=$bookID'><img src='bookimages/$bookImage' alt='test' /></a>";
   echo '<h4>'.$bookName.'</h4>';
-  echo '<form action="delete.php" method="post">';
+  echo '<form action="remove-book.php" method="post">';
   echo '<input type="hidden" name="book_id" value="'.$bookID.'">';
   echo '<input type="submit" name="delete" value="Delete">';
   echo '</form>';

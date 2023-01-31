@@ -101,7 +101,7 @@ function LoginAndReg($conn)
         echo "<script>window.location.href='user_dashboard.php';</script>";
       }
     }else{
-      echo "<div> invalid Username/Password </div>";
+      echo "<script>alert('Invalid Username/Password')</script>";
     };
   };
 }
