@@ -1,4 +1,5 @@
 <?php include('connection.php');
+include("functions.php");
 session_start();
 //Add input validation in javascript.
 ?>
@@ -39,10 +40,7 @@ session_start();
               <li><a href="contact_us.html">Contact</a></li>
               <li><a href="account.html">Account</a></li>
               <!----------  Welcoming and Logout ------------------>
-              <?php if(isset($_SESSION['username'])){
-              echo "<li> Welcome , $_SESSION[username] <li>";
-              echo "<li><a href='logout.php'>Logout</a></li>";
-              }?>
+              <?php welcome_logout();?>
             </ul>
         </nav>
         <a href="cart.html">

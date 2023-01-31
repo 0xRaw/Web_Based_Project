@@ -149,7 +149,7 @@ if(!isset($_SESSION["username"])){
     <nav id="unique-navbar">
         <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
         <a href="feedback.html"><i class="fa fa-comments"></i> Feedback</a>
-        <a href="products_all.html"><i class="fa fa-plus-square"></i> Upload New Product</a>
+        <a href="products_all.html"><i class="fa fa-plus-square"></i> Products</a>
         <a href="account.html" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
 
