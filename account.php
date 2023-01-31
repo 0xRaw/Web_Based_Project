@@ -27,22 +27,22 @@ include("functions.php");
     <div class="container">
       <div class="navbar">
         <div class="logo">
-          <a href="index.html">
+          <a href="index.php">
             <img src="images/EbookStore-Logo.png" alt="EbookStore-Logo" />
           </a>
         </div>
         <!----------  Nav Bar ------------------>
         <nav>
             <ul id="MenuItems">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="products.html">Products</a></li>
-              <li><a href="contact_us.html">Contact</a></li>
-              <li><a href="account.html">Account</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="products.php">Products</a></li>
+              <li><a href="contact_us.php">Contact</a></li>
+              <li><a href="account.php">Account</a></li>
               <!----------  Welcoming and Logout ------------------>
               <?php welcome_logout();?>
             </ul>
         </nav>
-        <a href="cart.html">
+        <a href="cart.php">
           <img
             src="images/cart.png"
             alt="Shoping Cart"

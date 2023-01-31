@@ -138,20 +138,20 @@ if(!isset($_SESSION["username"])){
     <div class="container">
       <div class="navbar">
         <div class="logo">
-          <a href="index.html">
+          <a href="index.php">
             <img src="images/EbookStore-Logo.png" alt="EbookStore-Logo" />
           </a>
         </div>
         <!----------  Nav Bar ------------------>
         <nav>
           <ul id="MenuItems">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact_us.html">Contact</a></li>
-            <li><a href="account.html">Account</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="contact_us.php">Contact</a></li>
+            <li><a href="account.php">Account</a></li>
           </ul>
         </nav>
-        <a href="cart.html">
+        <a href="cart.php">
           <img
             src="images/cart.png"
             alt="Shoping Cart"
@@ -167,10 +167,10 @@ if(!isset($_SESSION["username"])){
     <br>
     
     <nav id="unique-navbar">
-        <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
-        <a href="feedback.html"><i class="fa fa-comments"></i> Feedback</a>
-        <a href="products_all.html"><i class="fa fa-plus-square"></i> Products</a>
-        <a href="account.html" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="orders.php"><i class="fa fa-shopping-cart"></i> Orders</a>
+        <a href="feedback.php"><i class="fa fa-comments"></i> Feedback</a>
+        <a href="products_all.php"><i class="fa fa-plus-square"></i> Products</a>
+        <a href="account.php" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
 <?php
 

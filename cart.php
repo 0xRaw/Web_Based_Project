@@ -1,5 +1,8 @@
-<?php include('connection.php');
+<?php 
 session_start();
+include('connection.php');
+include('functions.php');
+//Checking the cart with the session
 if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book-price']) && isset($_POST['book-quantity']) && isset($_POST['book-type']) && isset($_POST['book-category']) && isset($_POST['book-image']))
 {
     $book_id = $_POST['book-id'];
@@ -24,6 +27,7 @@ if(isset($_POST['book-id']) && isset($_POST['book-title']) && isset($_POST['book
       
     }
 }
+//cart is empty
 elseif(!isset($_SESSION['cart'])){
   echo "<script>alert('Cart is empty, please add items to your cart.');</script>";
   echo "<script>window.location.href='products.php';</script>";
@@ -56,23 +60,25 @@ elseif(!isset($_SESSION['cart'])){
     <div class="container">
       <div class="navbar">
         <div class="logo">
-          <a href="index.html">
+          <a href="index.php">
             <img src="images/EbookStore-Logo.png" alt="EbookStore-Logo" />
           </a>
         </div>
         <!----------  Nav Bar ------------------>
          <!----------  Nav Bar ------------------>
-         <nav>
+          <nav>
             <ul id="MenuItems">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="products.html">Products</a></li>
-              <li><a href="contact_us.html">Contact</a></li>
-              <li><a href="account.html">Account</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="products.php">Products</a></li>
+              <li><a href="contact_us.php">Contact</a></li>
+              <li><a href="account.php">Account</a></li>
               <!----------  Welcoming and Logout ------------------>
-              <?php if(isset($_SESSION['username'])){
-              echo "<li> Welcome , $_SESSION[username] <li>";
-              echo "<li><a href='logout.php'>Logout</a></li>";
-              }?>
+              <?php     
+              if(isset($_SESSION['username'])){
+        echo "<li> Welcome , $_SESSION[username] <li>";
+        echo "<li><a href='logout.php'>Logout</a></li>";
+        }
+        ?>
             </ul>
         </nav>
         <a href="cart.html">

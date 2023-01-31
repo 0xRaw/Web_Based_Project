@@ -113,4 +113,37 @@ function welcome_logout(){
         echo "<li><a href='logout.php'>Logout</a></li>";
         }
 }
+
+
+function show_cart(){
+  $cart = $_SESSION['cart'];
+  $subtotal = 0;
+  for ($i = 0; $i < count($cart); $i++) {
+    $subtotal += (int)$cart[$i]['book_price'] * (int)$cart[$i]['book_quantity'];
+    echo "
+      <tr>
+        <td>
+          <div class='cart-info'>
+            <img src='bookimages/".$cart[$i]['book_image']."' />
+            <div>
+              <p>" . $cart[$i]['book_title'] . "</p>
+              <small> Per Piece : " . $cart[$i]['book_price'] . " SAR</small> <br />
+              <small> Book Category : " . $cart[$i]['book_category'] . "</small> <br />
+              <small> Book Type : " . $cart[$i]['book_type'] . "</small> <br />
+              <a href='remove-from-cart.php?book_id=".$cart[$i]['book_id']."'>Remove</a>
+            </div>
+          </div>
+        </td>
+        <td>
+          <input type='number' min='1' name='quantity[".$i."]' value='" . $cart[$i]['book_quantity'] . "'>
+          <input type='hidden' name='book_id[".$i."]' value='" . $cart[$i]['book_id'] . "'>
+        </td>
+        <td> <span id='subtotal" . $i . "'>" . $cart[$i]['book_price'] * $cart[$i]['book_quantity'] . "</span> SAR</td>
+        </tr>
+      ";
+    }
+}
 ?>
+
+
+

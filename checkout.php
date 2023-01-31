@@ -4,7 +4,7 @@ include 'connection.php';
 
 $currentDate =  time(); // get current date
 $timeoforder= date("Y-m-d H:i:s", $currentDate);
-// Define a checkout function
+
     // Check if user is logged in and has a valid cart
     if(isset($_SESSION['username']) && isset($_SESSION['userID']) && isset($_SESSION['cart'])){
         // User is logged in, proceed with order insertion

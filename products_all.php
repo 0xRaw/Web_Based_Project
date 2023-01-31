@@ -121,20 +121,20 @@ if(!isset($_SESSION["username"])){
   <div class="container">
     <div class="navbar">
       <div class="logo">
-        <a href="index.html">
+        <a href="index.php">
           <img src="images/EbookStore-Logo.png" alt="EbookStore-Logo" />
         </a>
       </div>
       <!----------  Nav Bar ------------------>
       <nav>
         <ul id="MenuItems">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact_us.html">Contact</a></li>
-          <li><a href="account.html">Account</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="products.php">Products</a></li>
+          <li><a href="contact_us.php">Contact</a></li>
+          <li><a href="account.php">Account</a></li>
         </ul>
       </nav>
-      <a href="cart.html">
+      <a href="cart.php">
         <img src="images/cart.png" alt="Shoping Cart" width="28px" height="28px" style="margin-left: 10px; margin-top: 15px" />
       </a>
       <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" />
@@ -144,52 +144,15 @@ if(!isset($_SESSION["username"])){
   <br>
 
   <nav id="unique-navbar">
-    <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
-    <a href="feedback.html"><i class="fa fa-comments"></i> Feedback</a>
-    <a href="products_all.html"><i class="fa fa-plus-square"></i> Products</a>
-    <a href="account.html" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="orders.php"><i class="fa fa-shopping-cart"></i> Orders</a>
+    <a href="feedback.php"><i class="fa fa-comments"></i> Feedback</a>
+    <a href="products_all.php"><i class="fa fa-plus-square"></i> Products</a>
+    <a href="account.php" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </nav>
-  <h2>
-    <center>View Products</center>
-  </h2>
-
-  <table class="books-table">
-    <tr id="table-header">
-      <th id="bookname-column">Book Name</th>
-      <th id="author-column">Book Author</th>
-      <th id="publish-column">Book Published</th>
-      <th id="price-column">Book Price</th>
-      <th id="BookImage-column">Book Image</th>
-      <th id="Category-column">Book Category</th>
-      <th id="BookDesc-column">Book Description</th>
-      <th id="BookStock-column">Book Stock</th>
-    </tr>
-    <?php
-    $query = "SELECT * FROM books";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) < 1) {
-      echo "No Books in The Table..";
-    } else {
-      while ($row = mysqli_fetch_array($result)) {;
-        $bookImage =  str_replace(' ', '', $row['BookImage']); //to remove spaces in picture names
-        echo "<tr>";
-        echo "<td>" . $row["BookName"] . "</td>";
-        echo "<td>" . $row["BookAuthor"] . "</td>";
-        echo "<td>" . $row["BookPublished"] . "</td>";
-        echo "<td>" . $row["BookPrice"] . "</td>";
-        echo "<td><img src=bookimages/" . $bookImage . "></td>";
-        echo "<td>" . $row["BookCategory"] . "</td>";
-        echo "<td>" . $row["BookDescription"] . "</td>";
-        echo "<td>" . $row["BookStock"] . "</td>";
-        echo "</tr>";
-      }
-    } ?>
-
-  </table>
-
-  <h2>
-    <center>Or Insert New Product</center>
-  </h2>
+  <center><h2>
+    Insert New Product
+  </h2></center>
+  <div class="row">
   <form name="book-form" onsubmit="return validateForm()" method="post" enctype="multipart/form-data">
     <div class="form-field">
       <i class="fa fa-book"></i>
@@ -241,9 +204,60 @@ if(!isset($_SESSION["username"])){
       <input type="submit" value="Upload" onclick="<?php UploadProduct($conn);?>">
     </div>
   </form>
+  </div>
 
-
-  
+  <br>
+  <br>
+  <center><h2> Products </h2></center>
+  <center>
+  <form action="products_all.php" method="POST">
+      <input type="text" name="searchq" placeholder="Search...">
+    <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    </center>
+    <center>
+  <div class=row>
+  <?php
+$query="SELECT * FROM Books";
+if(isset($_POST['searchq']) && !empty($_POST['searchq'])){
+  $search = mysqli_real_escape_string($conn, strtolower($_POST['searchq']));
+  $query .= " WHERE LOWER(BookName) LIKE '%$search%' OR LOWER(BookAuthor) LIKE '%$search%' OR LOWER(BookCategory) LIKE '%$search%'";
+}
+$result = mysqli_query($conn, $query);
+echo '<div class="row">';
+$counter = 0;
+while($row = mysqli_fetch_assoc($result)) {
+  $bookName = $row['BookName'];
+  $bookAuthor = $row['BookAuthor'];
+  $bookID= $row['BookID'];
+  $bookPrice = $row['BookPrice'];
+  $bookImage =  str_replace(' ', '', $row['BookImage']); //to remove spaces in picture names
+  $bookCategory = $row['BookCategory'];
+  echo '<div class="col-4">';
+  echo "<a href='book-detail.php?id=$bookID'><img src='bookimages/$bookImage' alt='test' /></a>";
+  echo '<h4>'.$bookName.'</h4>';
+  echo '<form action="delete.php" method="post">';
+  echo '<input type="hidden" name="book_id" value="'.$bookID.'">';
+  echo '<input type="submit" name="delete" value="Delete">';
+  echo '</form>';
+  echo '<form action="edit_book.php" method="GET">';
+  echo '<input type="hidden" name="book_id" value="'.$bookID.'">';
+  echo '<input type="submit" name="edit" value="Edit">';
+  echo '</form>';
+  echo '<p>'.$bookPrice.' SAR </p>';
+  echo '</div>';
+  $counter++;
+  if($counter % 4 == 0){
+    echo '</div><div class="row">';
+  }
+};
+?>
+  </div>
+  </center>
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="footer">
     <div class="container">
       <div class="row">
