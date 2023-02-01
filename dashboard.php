@@ -127,7 +127,6 @@ if(!isset($_SESSION["username"])){
               <!----------  Welcoming and Logout ------------------>
               <?php if(isset($_SESSION['username'])){
               echo "<li> Welcome , $_SESSION[username] <li>";
-              echo "<li><a href='logout.php'>Logout</a></li>";
               }?>
             </ul>
         </nav>
@@ -150,7 +149,7 @@ if(!isset($_SESSION["username"])){
         <a href="orders.php"><i class="fa fa-shopping-cart"></i> Orders</a>
         <a href="feedback.php"><i class="fa fa-comments"></i> Feedback</a>
         <a href="products_all.php"><i class="fa fa-plus-square"></i> Products</a>
-        <a href="account.php" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="logout.php" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
 
     <div id="dashboard">
