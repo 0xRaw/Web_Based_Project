@@ -40,9 +40,10 @@ if (isset($_COOKIE['UserID'])) {
 
 // If the user is not a returning customer, store their user ID in a cookie
 else {
+  if(isset($_SESSION['userID'])){
   $userID = $_SESSION['userID'];
   setcookie("UserID", $userID, time() + (86400 * 30), "/");
-  
+  }
 }
 ?>
 <!DOCTYPE html>
