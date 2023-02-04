@@ -132,6 +132,9 @@ if(!isset($_SESSION["username"])){
           <li><a href="products.php">Products</a></li>
           <li><a href="contact_us.php">Contact</a></li>
           <li><a href="account.php">Account</a></li>
+          <?php if(isset($_SESSION['username'])){
+              echo "<li> Welcome , $_SESSION[username] <li>";
+              }?>
         </ul>
       </nav>
       <a href="cart.php">
@@ -147,7 +150,7 @@ if(!isset($_SESSION["username"])){
     <a href="orders.php"><i class="fa fa-shopping-cart"></i> Orders</a>
     <a href="feedback.php"><i class="fa fa-comments"></i> Feedback</a>
     <a href="products_all.php"><i class="fa fa-plus-square"></i> Products</a>
-    <a href="account.php" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    <a href="logout.php" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </nav>
   <center><h2>
     Insert New Product

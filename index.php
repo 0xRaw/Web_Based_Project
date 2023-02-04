@@ -3,7 +3,8 @@ session_start();
 include 'connection.php'; 
 
 // Check if the user is a returning customer by checking if their user ID is stored in a cookie
-if (isset($_COOKIE['UserID'])) {
+if (isset($_COOKIE['UserID']) && isset($_SESSION['userID'])) {
+  header("refresh");
   $userID = $_COOKIE['UserID'];
 
   // Connect to the database
@@ -40,9 +41,10 @@ if (isset($_COOKIE['UserID'])) {
 
 // If the user is not a returning customer, store their user ID in a cookie
 else {
+  if(isset($_SESSION['userID'])){
   $userID = $_SESSION['userID'];
   setcookie("UserID", $userID, time() + (86400 * 30), "/");
-  
+  }
 }
 ?>
 <!DOCTYPE html>
