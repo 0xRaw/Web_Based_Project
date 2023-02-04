@@ -1,6 +1,6 @@
-create DATABASE BookStore;
+create DATABASE ebooks;
 
-use bookstore;
+use ebooks;
 
 CREATE TABLE Users(
     UserID INT NOT NULL AUTO_INCREMENT ,
