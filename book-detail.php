@@ -1,4 +1,5 @@
 <?php include('connection.php');
+include('functions.php');
 //Add input validation in javascript.
 ?>
 <!DOCTYPE html>

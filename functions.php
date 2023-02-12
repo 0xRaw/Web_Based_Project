@@ -56,7 +56,7 @@ function LoginAndReg($conn)
     $emailResult = $emailCheck->get_result();
   
     if ($emailResult->num_rows > 0) {
-      echo "<div>The email is already registered</div>";
+      echo "<script>alert('The email is already registered')</script>";
     }
   
     // Check if username already exists in the user table
@@ -66,7 +66,7 @@ function LoginAndReg($conn)
     $usernameResult = $usernameCheck->get_result();
   
     if ($usernameResult->num_rows > 0) {
-      echo "<div>The username is already taken</div>";
+      echo "<script>alert('The username is already taken')</script>";
     } else {
       // add the new user to the table
       $insert = $conn->prepare("INSERT INTO users (UserName, Email, Pwd, isAdmin) VALUES (?, ?, ?,0)");

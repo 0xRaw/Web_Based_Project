@@ -117,7 +117,7 @@ else {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br />
             Incidunt voluptas, porro nisi beatae inventore consequuntur?
           </p>
-          <a href="products.html" class="btn">Explore Now &#x27F6;</a>
+          <a href="products.php" class="btn">Explore Now &#x27F6;</a>
         </div>
         <div class="col-2">
           <img src="images/header-pic.png" alt="Header Pic" />
